@@ -32,8 +32,19 @@ for row in excel_output.iterrows():
     registerI = f"{REGISTERS}/{ColumnI}.pdf"
     if ColumnD != "0":
         shutil.copyfile(registerD, output_file)
+        print(f"Register {registerD} has been moved to {output_file}")
     if ColumnG != "0":
         shutil.copyfile(registerG, output_file)
+        print(f"Register {registerG} has been moved to {output_file}")
     if ColumnI != "0":
         shutil.copyfile(registerI, output_file)
+        print(f"Register {registerI} has been moved to {output_file}")
+    # if ColumnD != "0":
+    #     for file in os.listdir(ADD_LEASES):
+    #         file_name = file[5]
+    #         if file
+
     input()
+
+# for file in os.listdir(ADD_LEASES):
+#     print(file[5])
