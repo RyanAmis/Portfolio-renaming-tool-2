@@ -30,7 +30,10 @@ for row in excel_output.iterrows():
     registerD = f"{REGISTERS}/{ColumnD}.pdf"
     registerG = f"{REGISTERS}/{ColumnG}.pdf"
     registerI = f"{REGISTERS}/{ColumnI}.pdf"
-    shutil.copyfile(registerD, output_file)
-    shutil.copyfile(registerG, output_file)
-    shutil.copyfile(registerI, output_file)
+    if ColumnD != "0":
+        shutil.copyfile(registerD, output_file)
+    if ColumnG != "0":
+        shutil.copyfile(registerG, output_file)
+    if ColumnI != "0":
+        shutil.copyfile(registerI, output_file)
     input()
