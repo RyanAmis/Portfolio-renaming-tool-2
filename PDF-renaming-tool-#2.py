@@ -26,6 +26,8 @@ for row in excel_output.iterrows():
     ColumnG = row["head_leasehold_title_number"]
     ColumnI = row["under_leasehold_title_number"]
     output_file = f"//khfiler01/Searchflow/CSF/oper/Operations/Portfolios/Portfolios/Land Registry Extracts/LRE 1712 Penningtons/Script testing/Phase 3 - Batch 1 Complete/{Block_Code} - {Block_Name}"
-
+    registerD = f"{REGISTERS}/{ColumnD}"
+    registerG = f"{REGISTERS}/{ColumnG}"
+    registerI = f"{REGISTERS}/{ColumnI}"
 
     input()
