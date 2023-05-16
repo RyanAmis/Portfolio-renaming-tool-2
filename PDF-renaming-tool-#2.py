@@ -6,6 +6,7 @@
 # find file in column G1 and copy to folder named A2+B2
 # find file in column I1 and copy to folder named A2+B2
 # loop
+import os
 
 import openpyxl
 import pandas
@@ -18,6 +19,7 @@ PHASE3_COMPLETE = "//khfiler01/Searchflow/CSF/oper/Operations/Portfolios/Portfol
 
 excel_output = pandas.read_excel(PHASE_3_XL, sheet_name="Sheet1")
 
+
 for row in excel_output.iterrows():
     row = row[1].to_dict()
     Block_Code = row["Block Code"]
@@ -29,20 +31,32 @@ for row in excel_output.iterrows():
     registerD = f"{REGISTERS}/{ColumnD}.pdf"
     registerG = f"{REGISTERS}/{ColumnG}.pdf"
     registerI = f"{REGISTERS}/{ColumnI}.pdf"
-    if ColumnD != "0":
-        shutil.copyfile(registerD, output_file)
-        print(f"Register {registerD} has been moved to {output_file}")
-    if ColumnG != "0":
-        shutil.copyfile(registerG, output_file)
-        print(f"Register {registerG} has been moved to {output_file}")
-    if ColumnI != "0":
-        shutil.copyfile(registerI, output_file)
-        print(f"Register {registerI} has been moved to {output_file}")
-    input()
-    # if ColumnD != "0":
-    #     for file in os.listdir(ADD_LEASES):
-    #         file_name = file[5]
-    #         if file
+    if f'{ColumnD}' != "0":
+        try:
+            shutil.copy(f"{registerD}", output_file)
+            print(f"Register {registerD} has been copied")
+        except FileNotFoundError as error:
+            pass
+        except OSError as error:
+            pass
+    if f'{ColumnG}' != "0":
+        try:
+            shutil.copy(registerG, output_file)
+            print(f"Register {registerG} has been copied")
+        except FileNotFoundError as error:
+            pass
+        except OSError as error:
+            pass
+    if f'{ColumnI}' != "0":
+        try:
+            shutil.copy(registerI, output_file)
+            print(f"Register {registerI} has been copied")
+        except FileNotFoundError as error:
+            pass
+        except OSError as error:
+            pass
+
+
 
 
 
