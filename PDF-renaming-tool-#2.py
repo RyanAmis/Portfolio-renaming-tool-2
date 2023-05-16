@@ -10,6 +10,7 @@
 import os
 import openpyxl
 import pandas
+import shutil
 
 PHASE_3_XL = "//khfiler01/Searchflow/CSF/oper/Operations/Portfolios/Portfolios/Land Registry Extracts/LRE 1712 Penningtons/Script testing/Phase 3 - First Batch.xlsx"
 REGISTERS = "//khfiler01/Searchflow/CSF/oper/Operations/Portfolios/Portfolios/Land Registry Extracts/LRE 1712 Penningtons/Script testing/Registers"
@@ -25,9 +26,11 @@ for row in excel_output.iterrows():
     ColumnD = row["freehold_title_number"]
     ColumnG = row["head_leasehold_title_number"]
     ColumnI = row["under_leasehold_title_number"]
-    output_file = f"//khfiler01/Searchflow/CSF/oper/Operations/Portfolios/Portfolios/Land Registry Extracts/LRE 1712 Penningtons/Script testing/Phase 3 - Batch 1 Complete/{Block_Code} - {Block_Name}"
-    registerD = f"{REGISTERS}/{ColumnD}"
-    registerG = f"{REGISTERS}/{ColumnG}"
-    registerI = f"{REGISTERS}/{ColumnI}"
-
+    output_file = f"{PHASE3_COMPLETE}/{Block_Code} - {Block_Name}"
+    registerD = f"{REGISTERS}/{ColumnD}.pdf"
+    registerG = f"{REGISTERS}/{ColumnG}.pdf"
+    registerI = f"{REGISTERS}/{ColumnI}.pdf"
+    shutil.copyfile(registerD, output_file)
+    shutil.copyfile(registerG, output_file)
+    shutil.copyfile(registerI, output_file)
     input()
