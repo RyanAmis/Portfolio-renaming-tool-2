@@ -7,7 +7,6 @@
 # find file in column I1 and copy to folder named A2+B2
 # loop
 
-import os
 import openpyxl
 import pandas
 import shutil
@@ -39,12 +38,13 @@ for row in excel_output.iterrows():
     if ColumnI != "0":
         shutil.copyfile(registerI, output_file)
         print(f"Register {registerI} has been moved to {output_file}")
+    input()
     # if ColumnD != "0":
     #     for file in os.listdir(ADD_LEASES):
     #         file_name = file[5]
     #         if file
 
-    input()
+
 
 # for file in os.listdir(ADD_LEASES):
 #     print(file[5])
