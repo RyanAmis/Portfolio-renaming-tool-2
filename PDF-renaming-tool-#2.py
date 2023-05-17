@@ -1,11 +1,3 @@
-# identify spreadsheet
-# use information in columns to create value pairs
-# identify directories
-# find folder names A2+B2
-# find file in column D2 and copy to folder named A2+B2
-# find file in column G1 and copy to folder named A2+B2
-# find file in column I1 and copy to folder named A2+B2
-# loop
 import os
 
 import openpyxl
@@ -55,10 +47,3 @@ for row in excel_output.iterrows():
             pass
         except OSError as error:
             pass
-
-
-
-
-
-# for file in os.listdir(ADD_LEASES):
-#     print(file[5])
